@@ -7,6 +7,7 @@ Background: Below are the common steps for each scenario
 	And Click on login 
 	Then User can view Dashboard 
 
+@sanity
 Scenario: Add a new Customer 
 	When User Click on customers Menu 
 	And Click on customers Menu Item 
@@ -17,7 +18,7 @@ Scenario: Add a new Customer
 	Then User can view confirmation message "The new customer has been added successfully." 
 	And  Close browser 
 
-	
+@regression
 Scenario: Search Customer by emialID 
 	When User Click on customers Menu 
 	And Click on customers Menu Item 
@@ -26,6 +27,7 @@ Scenario: Search Customer by emialID
 	Then user should found email in the search button
 	And  Close browser 
 	
+@regression
 Scenario: Search Customer by Name 
 	When User Click on customers Menu 
 	And Click on customers Menu Item 
@@ -34,3 +36,4 @@ Scenario: Search Customer by Name
 	When Click on search button
 	Then user should found name in the search button
 	And  Close browser 
+	

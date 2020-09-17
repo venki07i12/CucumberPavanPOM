@@ -13,8 +13,11 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 
-import io.cucumber.java.Before;
-import io.cucumber.java.en.*;
+import cucumber.api.java.Before;
+import cucumber.api.java.en.And;
+import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
 import pageobjects.AddCustomerpage;
 import pageobjects.LoginPage;
 import pageobjects.SearchCutomerpage;
@@ -58,12 +61,12 @@ public class Steps extends BaseClass {
 	    lp = new LoginPage(driver);
 	  }
 
-	@When("User open URL {string}")
+	@When("User open URL \"(.*)\"")
 	public void user_open_url(String url) {
 	   driver.get(url);
 	}
 
-	@And("User enters email as {string} and password as {string}")
+	@And("User enters email as \"(.*)\" and password as \"(.*)\"")
 	public void user_enters_email_as_and_password_as(String email, String password) {
 	   lp.setusername(email);
 	   lp.setpassword(password);
@@ -77,7 +80,7 @@ public class Steps extends BaseClass {
 	}
 
 
-	@Then("Page Title should be {string}")
+	@Then("Page Title should be \"(.*)\"")
 	public void page_title_should_be(String title) {
 	   if(driver.getPageSource().contains("Login was unsuccessful"))   {
 		   driver.close();
@@ -157,7 +160,7 @@ public class Steps extends BaseClass {
 		Thread.sleep(3000);
 	}
 
-	@Then("User can view confirmation message {string}")
+	@Then("User can view confirmation message \"(.*)\"")
 	public void user_can_view_confirmation_message(String string) {
 	    Assert.assertTrue(driver.findElement(By.tagName("body")).getText()
 	    		.contains("The new customer has been added successfully"));
